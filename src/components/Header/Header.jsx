@@ -1,4 +1,4 @@
-import {useEffect, useState, useContext} from "react";
+import {useEffect, useState, useContext, Fragment} from "react";
 import {useNavigation} from "react-router-dom";
 import {TbSearch} from "react-icons/tb";
 import {CgShoppingCart} from "react-icons/cg";
@@ -10,7 +10,12 @@ import "./Header.scss";
 
 const Header = () => {
 
-    const [scroll, setScroll] = useState(false)
+    const [scroll, setScroll] = useState(false);
+    const [showCart, setShowCart] = useState(false);
+
+    const showCartHandler =()=>{
+        setShowCart(!showCart);
+    }
     const handleScroller = () => {
         const offset = window.scrollY;
         offset > 200 ? setScroll(true) : setScroll(false)
@@ -23,26 +28,29 @@ const Header = () => {
     })
 
     return (
-        <header className={`main-header ${scroll ? "sticky-header" : ""}`}>
-            <div className="header-content">
-                <ul className="left">
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Categories</li>
-                </ul>
-                <div className="center">
-                    Smart Market
-                </div>
-                <div className="right">
-                    <TbSearch/>
-                    <AiOutlineHeart/>
-                    <span className="cart-icon">
+        <Fragment>
+            <header className={`main-header ${scroll ? "sticky-header" : ""}`}>
+                <div className="header-content">
+                    <ul className="left">
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Categories</li>
+                    </ul>
+                    <div className="center">
+                        Smart Market
+                    </div>
+                    <div className="right">
+                        <TbSearch/>
+                        <AiOutlineHeart/>
+                        <span className="cart-icon" onClick={showCartHandler}>
                         <CgShoppingCart/>
                         <span>5</span>
                     </span>
+                    </div>
                 </div>
-            </div>
-        </header>
+            </header>
+            {showCart && <Cart closeCart={showCartHandler}/>}
+        </Fragment>
     );
 };
 

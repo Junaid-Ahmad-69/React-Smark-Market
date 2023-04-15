@@ -2,12 +2,12 @@ import "./Products.scss";
 import {Fragment} from "react";
 import Product from "./Product/Product"
 
-const Products = ({innerPage}) => {
+const Products = ({innerPage, headingText}) => {
     return (
         <Fragment>
             <div className="products-container">
                 {!innerPage && <div className="product-heading">
-                    Section heading
+                    {headingText}
                 </div>}
                 <div className="products">
                     <Product/>

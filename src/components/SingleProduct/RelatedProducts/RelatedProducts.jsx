@@ -1,5 +1,7 @@
+import Products from "../../Products/Products";
+
 const RelatedProducts = () => {
-    return <div>Related Products</div>;
+    return <Products headingText="Related Products"/>;
 };
 
 export default RelatedProducts;
