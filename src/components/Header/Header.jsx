@@ -7,14 +7,19 @@ import search from "./Search/Search";
 import Cart from "../Cart/Cart";
 import {Context} from "../../utils/context";
 import "./Header.scss";
+import Search from "./Search/Search";
 
 const Header = () => {
 
     const [scroll, setScroll] = useState(false);
     const [showCart, setShowCart] = useState(false);
+    const [showSearch, setShowSearch] = useState(false);
 
-    const showCartHandler =()=>{
+    const showCartHandler = () => {
         setShowCart(!showCart);
+    }
+    const showSearchHandler = () => {
+        setShowSearch(!showSearch);
     }
     const handleScroller = () => {
         const offset = window.scrollY;
@@ -40,7 +45,7 @@ const Header = () => {
                         Smart Market
                     </div>
                     <div className="right">
-                        <TbSearch/>
+                        <TbSearch onClick={showSearchHandler}/>
                         <AiOutlineHeart/>
                         <span className="cart-icon" onClick={showCartHandler}>
                         <CgShoppingCart/>
@@ -50,6 +55,7 @@ const Header = () => {
                 </div>
             </header>
             {showCart && <Cart closeCart={showCartHandler}/>}
+            {showSearch && <Search closeSearch={showSearchHandler}/>}
         </Fragment>
     );
 };
