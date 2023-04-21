@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/smart-market.iml" filepath="$PROJECT_DIR$/.idea/smart-market.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/React-Smark-Market.iml" filepath="$PROJECT_DIR$/.idea/React-Smark-Market.iml" />
     </modules>
   </component>
 </project>
